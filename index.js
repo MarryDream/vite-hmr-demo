@@ -19,8 +19,6 @@ import { createServer } from "vite";
     app.use( "*", async ( req, res ) => {
         const url = req.originalUrl;
 
-        console.log( url );
-
         let template = fs.readFileSync( resolve( process.cwd(), "./frontend/index.html" ), "utf-8" );
         template = await vite.transformIndexHtml( url, template );
         
